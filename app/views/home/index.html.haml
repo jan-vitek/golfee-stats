@@ -1,0 +1,10 @@
+-if params[:order] == '1'
+  - @players = Player.find(:all, :conditions => "points IS NOT NULL").sort{|x,y| x.temp_score <=> y.temp_score }
+-else
+  - @players = Player.order("points").find(:all, :conditions => "points IS NOT NULL")
+- @golfers = Golfer.find(:all).sort{|x,y| y.tips_count(Rond.last) <=> x.tips_count(Rond.last) }
+- @tips = Tip.all
+.container-fluid
+  
+  .row-fluid
+    = render :partial => 'tabs'

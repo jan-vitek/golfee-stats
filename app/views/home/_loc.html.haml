@@ -1,0 +1,22 @@
+#accordion2.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
+        Core Locations
+    #collapseOne.accordion-body.collapse.in
+      .accordion-inner
+        test
+        %br/
+        test1
+        %br/
+        
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseTwo"}
+        RAN Locations
+    #collapseTwo.accordion-body.collapse
+      .accordion-inner
+        test
+        %br/
+        test1
+        %br/

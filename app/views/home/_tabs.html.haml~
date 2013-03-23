@@ -1,0 +1,18 @@
+- t = params[:tab]
+
+
+.xxx
+  %ul#dashboard-tabs.nav.nav-tabs
+    %li
+      %a{"data-toggle" => "tab", :href => "#players"} Players
+    %li
+      %a{"data-toggle" => "tab", :href => "#golfers"} Golfers
+    %li
+      %a{"data-toggle" => "tab", :href => "#tips"} Tips
+  .tab-content
+    #players.tab-pane.active
+      = render "players/index"
+    #golfers.tab-pane
+      = render "tips/index"
+    #overview.tab-pane
+      = render "tips/index"

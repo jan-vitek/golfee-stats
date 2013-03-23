@@ -1,0 +1,20 @@
+#accordion2.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
+        Core Locations
+    #collapseOne.accordion-body.collapse.in
+      .accordion-inner
+        - Location.where('is_core=?', true).each do |loc|
+          = link_to loc.name, :controller => "dashboard", :action => "index", :id => loc.id
+          %br/
+        
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseTwo"}
+        RAN Locations
+    #collapseTwo.accordion-body.collapse
+      .accordion-inner
+        - Location.where('is_core=?', false).each do |loc|
+          = link_to loc.name, :controller => "dashboard", :action => "index", :id => loc.id
+          %br/

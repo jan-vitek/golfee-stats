@@ -1,0 +1,21 @@
+- model_class = Assoc
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:golfer_id) + ':'
+  %br
+  = @assoc.golfer_id
+%p
+  %strong= model_class.human_attribute_name(:player_id) + ':'
+  %br
+  = @assoc.player_id
+%p
+  %strong= model_class.human_attribute_name(:tip_id) + ':'
+  %br
+  = @assoc.tip_id
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), assocs_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_assoc_path(@assoc), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), assoc_path(@assoc), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

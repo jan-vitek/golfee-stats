@@ -1,0 +1,56 @@
+- if (params[:id] == nil)
+  - alarm_items = Alarm
+  - notice_items = Notice
+- else
+  - alarm_items = Location.find(params[:id]).alarms
+  - notice_items = Location.find(params[:id]).notices
+
+%h3 Current alarms
+.wellxxx
+  %table.table.table-hover
+    %tr
+      %th
+        ID
+      %th
+        Text
+      %th
+        Occured
+      %th
+        Acked
+      %th
+        End
+    %tr.success
+      %td
+        321.
+      %td
+        Power failure on DG1/1
+      %td
+        Jan 10, 13:30
+      %td
+        +1h:30m
+      %td
+        = "-"
+    %tr.info
+      %td
+        320.
+      %td
+        Power failure on DG1/2
+      %td
+        Jan 10, 11:30
+      %td
+        %button.bnt.btn-info
+          Ack!
+      %td
+        = "-"
+    %tr.warning
+      %td
+        319.
+      %td
+        A/C failure occured on Jan 10
+      %td
+        Jan 10, 13:30
+      %td
+        +1h:30m
+      %td
+        = "-"
+

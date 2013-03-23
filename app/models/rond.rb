@@ -1,0 +1,59 @@
+class Rond < ActiveRecord::Base
+  attr_accessible :number
+  
+  has_many :tips
+  
+  def load_tips
+      File.open("/home/vitek/Dokumenty/tips.csv", "r").each_line do |line|
+      # name: "Angela"    job: "Writer"    ...
+      data = line.split(/\t/)
+      player = Player.find_by_name(data[0])
+      golfer1 = Golfer.find_by_name(data[1])
+      golfer2 = Golfer.find_by_name(data[2])
+      golfer3 = Golfer.find_by_name(data[3][0..-2])
+      if player == nil
+	player=Player.new({:name => data[0]})
+	player.save
+      end
+      if golfer1 == nil
+	golfer1=Golfer.new({:name => data[1]})
+	golfer1.save
+      end
+      if golfer2 == nil
+	golfer2=Golfer.new({:name => data[2]})
+	golfer2.save
+      end
+      if golfer3 == nil
+	golfer3=Golfer.new({:name => data[3][0..-2]})
+	golfer3.save
+      end
+      
+      t = Tip.new({:rond_id => self.id})
+      t.save
+      
+      a = Assoc.new
+      a.update_attributes(:player_id => player.id, :golfer_id => golfer1.id, :tip_id => t.id)
+      a.save
+      
+      aa = Assoc.new({:player_id => player.id, :golfer_id => golfer2.id, :tip_id => t.id})
+      aa.save
+      
+      aaa = Assoc.new({:player_id => player.id, :golfer_id => golfer3.id, :tip_id => t.id})
+      aaa.save
+    end
+  end
+  
+  def load_points
+    File.open("/home/vitek/Dokumenty/points.csv", "r").each_line do |line|
+    # name: "Angela"    job: "Writer"    ...
+    data = line.split(/\t/)
+    
+    player_str = [data[1], ' ', data[0]].join
+    player = Player.find_by_name(player_str)
+    
+    if player != nil
+      player.update_attributes(:points => data[2])
+    end
+    end
+  end
+end

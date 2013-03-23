@@ -1,0 +1,3 @@
+class Association < ActiveRecord::Base
+  attr_accessible :golfer_id, :player_id, :tip_id
+end

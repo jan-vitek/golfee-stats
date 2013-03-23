@@ -1,0 +1,15 @@
+class ApplicationController < ActionController::Base
+  layout :resolve_layout
+  protect_from_forgery
+  
+   def resolve_layout
+   
+      case action_name
+      when "view"
+        "my_plain"
+      else
+        "application"
+      end
+   
+  end
+end

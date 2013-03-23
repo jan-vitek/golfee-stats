@@ -1,0 +1,6 @@
+class HomeController < ApplicationController
+
+  def _index
+    @players = Player.order("points").find(:all, :conditions => "points IS NOT NULL")
+  end
+end
