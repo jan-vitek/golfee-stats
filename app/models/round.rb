@@ -55,5 +55,6 @@ class Round < ActiveRecord::Base
       player.update_attributes(:points => data[2])
     end
   end
+  end
   
 end
