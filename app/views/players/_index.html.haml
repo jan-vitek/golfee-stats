@@ -24,11 +24,17 @@
         %td= player.name
         %td= player.points
         %td
-          = player.tips.find_by_rond_id(Rond.last).golfers.first.name
+          -begin
+            = player.tips.find_by_rond_id(Rond.last.id).golfers.first.name
+          -rescue
         %td
-          = player.tips.find_by_rond_id(Rond.last).golfers.second.name
+          -begin
+            = player.tips.find_by_rond_id(Rond.last.id).golfers.second.name
+          -rescue
         %td
-          = player.tips.find_by_rond_id(Rond.last).golfers.third.name
+          - begin
+            = player.tips.find_by_rond_id(Rond.last.id).golfers.third.name
+          -rescue
         %td
           = player.temp_score
         %td

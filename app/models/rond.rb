@@ -3,8 +3,8 @@ class Rond < ActiveRecord::Base
   
   has_many :tips
   
-  def load_tips
-      File.open("/home/vitek/Dokumenty/tips.csv", "r").each_line do |line|
+  def load_tips(f)
+      File.open(f, "r").each_line do |line|
       # name: "Angela"    job: "Writer"    ...
       data = line.split(/\t/)
       player = Player.find_by_name(data[0])
@@ -43,8 +43,8 @@ class Rond < ActiveRecord::Base
     end
   end
   
-  def load_points
-    File.open("/home/vitek/Dokumenty/points.csv", "r").each_line do |line|
+  def load_points(f)
+    File.open(f, "r").each_line do |line|
     # name: "Angela"    job: "Writer"    ...
     data = line.split(/\t/)
     

@@ -1,4 +1,9 @@
 Golfee::Application.routes.draw do
+  get "upload/index"
+
+  match "upload/upload" => 'upload#upload', :as => :upload, :via => :get
+  match "upload/upload" => 'upload#upload', :as => :upload, :via => :post
+
   resources :ronds
 
   match 'home/many_golfers/configure' => 'home#configure_many_golfers', :as => :configure_many_golfers, :via => :get

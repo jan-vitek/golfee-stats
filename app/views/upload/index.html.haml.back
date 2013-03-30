@@ -1,0 +1,8 @@
+%h1 Upload#index
+%p Find me in app/views/upload/index.html.haml
+= form_tag(:action => 'upload', :multipart => "true") do
+  = label_tag(:file1, "File:")
+  = file_field_tag(:file1)
+  = label_tag(:file2, "File:")
+  = file_field_tag(:file2)
+  = submit_tag("Upload")
