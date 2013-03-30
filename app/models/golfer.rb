@@ -3,7 +3,7 @@ class Golfer < ActiveRecord::Base
   
   has_many :assocs
   
-  def tips_count(round)
-    self.assocs.where("rond_id = ?", round).size
+  def tips_count(rond)
+    self.assocs.where("rond_id = ?", rond).size
   end
 end

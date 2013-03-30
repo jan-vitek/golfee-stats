@@ -32,13 +32,13 @@ class Rond < ActiveRecord::Base
       t.save
       
       a = Assoc.new
-      a.update_attributes(:player_id => player.id, :golfer_id => golfer1.id, :tip_id => t.id)
+      a.update_attributes(:player_id => player.id, :golfer_id => golfer1.id, :tip_id => t.id, :rond_id => self.id)
       a.save
       
-      aa = Assoc.new({:player_id => player.id, :golfer_id => golfer2.id, :tip_id => t.id})
+      aa = Assoc.new({:player_id => player.id, :golfer_id => golfer2.id, :tip_id => t.id, :rond_id => self.id})
       aa.save
       
-      aaa = Assoc.new({:player_id => player.id, :golfer_id => golfer3.id, :tip_id => t.id})
+      aaa = Assoc.new({:player_id => player.id, :golfer_id => golfer3.id, :tip_id => t.id, :rond_id => self.id})
       aaa.save
     end
   end

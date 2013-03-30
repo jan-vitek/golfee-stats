@@ -10,5 +10,11 @@ class UploadController < ApplicationController
     r.load_tips(file_path1)
     r.load_points(file_path2)
     r.save
+    Golfer.all.each do |golfer|
+      golfer.update_attributes(:temp_points => 0)
+    end
+    respond_to do |format|
+        format.html { redirect_to root_path }
+      end
   end
 end
