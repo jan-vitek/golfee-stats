@@ -16,3 +16,19 @@
       = render "golfers/index"
     #tips.tab-pane
       = render "tips/index"
+
+:javascript
+
+  $(function () {
+    
+    if (#{t}+1-1 > 0)
+    {
+      $('#dashboard-tabs li:eq(#{t}) a').tab('show');
+    }
+    else
+    {
+      $('#dashboard-tabs a:first').tab('show');
+    }
+    
+    
+  })
