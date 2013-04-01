@@ -5,10 +5,12 @@
     = f.label :file1, 'Tips', :class => 'control-label'
     .controls
       = f.file_field :file1, :class => 'file_field'
+      %a{:href => "/tips.csv", :title => "Tips example"}Tips example
   .control-group
     = f.label :file2, 'Points', :class => 'control-label'
     .controls
       = f.file_field :file2, :class => 'file_field'
+      %a{:href => "/points.csv", :title => "Tips example"}Points example
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), root_path, :class => 'btn'
