@@ -9,7 +9,7 @@
   - @golfers = Golfer.find(:all).sort{|x,y| y.tips_count(Rond.last) <=> x.tips_count(Rond.last) }
 - @tips = Tip.all
 %p{:align => "right"}
-  %a{:href => "/upload/index", :rel => "gb_page_center[640, 480]", :title => "New round"} New round
+  %a{:href => "/upload/index", :title => "New round"} New round
 .container-fluid
   
   .row-fluid
