@@ -4,7 +4,7 @@ class Rond < ActiveRecord::Base
   has_many :tips
   
   def load_tips(f)
-      File.open(f, "r").each_line do |line|
+      File.open(f, "r:cp1250").each_line do |line|
       # name: "Angela"    job: "Writer"    ...
       data = line.split(/\t/)
       player = Player.find_by_name(data[0])
@@ -44,7 +44,7 @@ class Rond < ActiveRecord::Base
   end
   
   def load_points(f)
-    File.open(f, "r").each_line do |line|
+    File.open(f, "r:cp1250").each_line do |line|
     # name: "Angela"    job: "Writer"    ...
     data = line.split(/\t/)
     
